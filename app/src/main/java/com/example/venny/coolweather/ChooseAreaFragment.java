@@ -39,6 +39,7 @@ import okhttp3.Response;
  */
 
 public class ChooseAreaFragment extends Fragment {
+    public static String weatherId;
     public static final int LEVEL_PROVINCE=0;
     public static final int LEVEL_CITY=1;
     public static final int LEVEL_COUNTY=2;
@@ -98,7 +99,7 @@ public class ChooseAreaFragment extends Fragment {
                     selectedCity=cityList.get(position);
                     queryCounties();
                 }else if (currentLevel==LEVEL_COUNTY){
-                    String weatherId=countyList.get(position).getWeatherId();
+                    weatherId=countyList.get(position).getWeatherId();
                     if (getActivity() instanceof MainActivity){
                     Intent intent=new Intent(getActivity(),WeatherActivity.class);
                     intent.putExtra("weather_id",weatherId);
